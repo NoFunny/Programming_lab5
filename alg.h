@@ -12,7 +12,7 @@ int check_unix(char *ptr);
 
 char* procces(char *str, char delim, char *buf);
 
-int last_check(char new, int r);
+int last_check(char *ptr);
 // int output();
 
 #endif

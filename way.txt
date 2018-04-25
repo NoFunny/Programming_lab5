@@ -1,2 +1,2 @@
 +
-/cygdrive/c/Windows/system32+/cygdrive/e/Distrib/msoffice.exe+/home/alex/prog/lab4.c
+/cygdrive/ce/Windows/system32+/cygdrive/ed/Distrib/msoffice.exe+/home/alex/prog/lab4.c

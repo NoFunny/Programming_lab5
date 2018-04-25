@@ -19,6 +19,7 @@ void input(char *str, char *delim) {
 	//ПРОВЕРКИ//
 
 int check_win(char *ptr, int r) {
+	int p = -1;
 	int x = 0;
 	// for(int i = 0; i < rez; i++) {
         if(schr(ptr,'|') != -1) {
@@ -116,6 +117,22 @@ int check_unix(char *ptr) {
         return x;
 }    
 
+int last_check(char *ptr) {
+	int p = -1;
+	printf("Cимвол11:%c\n", ptr[11]);
+    printf("Cимвол12:%c\n", ptr[12]);
+	if(ptr[12] == '/') { 
+        p = 2;
+    }else{ 
+        if(ptr[11] == '/') { 
+        	printf("Correct way\n");
+        	p = 1;
+        }else{	
+        	printf("Error!incorrect number symbol! \nptr incorrect\n");
+        }		
+	 }
+	return p; 
+}
 	
 
 		//ПРОЦЕСС//
@@ -147,17 +164,31 @@ char* procces(char *str, char delim, char *buf) {
 	}
 	for(int i = 0; i < rez; i++) {
 		if(s_str(ptr[i], p) != -1) {
-			printf("БУФЕР:%s\n", ptr[i] + 11);
-			printf("БУФЕР:%s\n", ptr[i] + 10);
-			printf("БУФЕР:%s\n", ptr[i] + 9);
+			// printf("БУФЕР:%s\n", ptr[i] + 11);
+			// printf("БУФЕР:%s\n", ptr[i] + 10);
+			int check = last_check(ptr[i]);
+			printf("Проверка:%d\n", check);
 			if(check_win(ptr[i], r) == 0) {
 			// printf("123123\n");
 			concat(buff, ptr[i] + r);
 			index = schr(new, '/');
 			inSimbols(new, simb, index);
 			simbchange(buff, '/', '\\');
-			new[0] = toUpperCase(new[0]);
-			//printf("Буф=%s\n\n", buff);
+			printf("Буф1=%s\n\n", ptr[i]);
+			printf("Буф123=%s\n\n", new);
+			if(check == 2) {
+				for(int t = 0; t < 2; t++) { 
+					new[t]= toUpperCase(new[t]);
+					new[t]= toUpperCase(new[t]);
+					printf("Буф2=%s\n\n", buff);
+				}
+			}
+			if(check == 1) {
+				for(int t = 0; t < 1; t++) {
+					new[t]= toUpperCase(new[t]);
+					printf("Буф2=%s\n\n", buff);
+				}
+			}		
 				printf("Буф=%s\n\n", buff);
 				concat(buff, "+");
 				ptr[i] -= 1;
